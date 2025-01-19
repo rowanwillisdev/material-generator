@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.12" />
+        <PackageReference Include="RowanWillis.Common.Application.Contracts" Version="1.0.10.13" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MaterialGenerator.Api\MaterialGenerator.Api.csproj" />
+      <ProjectReference Include="..\MaterialGenerator.Application.Contracts\MaterialGenerator.Application.Contracts.csproj" />
+      <ProjectReference Include="..\MaterialGenerator.Application\MaterialGenerator.Application.csproj" />
+    </ItemGroup>
+
+</Project>
