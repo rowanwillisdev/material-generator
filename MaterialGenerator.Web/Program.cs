@@ -26,12 +26,16 @@ app.MapPost("/GenerateMaterialSet", async (
         [FromBody] GenerateMaterialSetRequest request,
         [FromServices] ICommandSender sender) =>
     {
-        return (await sender.Send<GenerateMaterialSetCommand, GenerateMaterialSetResult>(new()
+        return (await sender.Send<GenerateMaterialSet, GenerateMaterialSetResult>(new()
         {
+            Id = request.Id,
             Name = request.Name,
             BaseColour = request.BaseColour,
         }))
-        .ToHttpResult<GenerateMaterialSetResult, GenerateMaterialSetResponse>(result => new());
+        .ToHttpResult<GenerateMaterialSetResult, GenerateMaterialSetResponse>(result => new()
+        {
+            GeneratedResources = result.GeneratedResources
+        });
     })
     .WithName("GenerateMaterialSet")
     .WithOpenApi();
